@@ -1,176 +1,192 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Quarterly Earnings — Interactive RevealJS Deck</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Q{N} Quarterly Earnings – Interactive Deck</title>
+  <meta name="description" content="Interactive quarterly earnings presentation with RevealJS, fragments, code, math, markdown, and speaker notes." />
 
-    <!-- Reveal.js core & theme (CDN quick start) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme" />
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme" />
 
-    <!-- Code highlighting -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css" />
+  <!-- Code syntax highlighting theme -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/plugin/highlight/monokai.css" />
 
-    <style>
-      .brand { font-weight: 700; letter-spacing: 0.02em; }
-      .muted { opacity: 0.7; }
-      .email { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-      .chart-placeholder { height: 360px; border: 2px dashed #ddd; border-radius: 12px; display: grid; place-items: center; }
-      .kpi { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.2rem; }
-      .kpi div { padding: 1rem; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-      .r-fit-text { font-size: calc(2.2vw + 2.2vh + 0.5vmin); }
-    </style>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
+  <style>
+    /* Minor polish */
+    .title-email { font-size: 0.9rem; opacity: 0.9; }
+    .kpi { font-size: 1.2rem; }
+    .reveal .slides section .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .badge { display: inline-block; padding: .25rem .6rem; border-radius: 999px; background: #2e7; color: #111; font-weight: 700; font-size: .7em; }
+    .caption { font-size: .6em; opacity:.8 }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-        <!-- Title slide -->
-        <section>
-          <h1 class="brand">Quarterly Earnings Report</h1>
-          <p class="muted">Interactive deck powered by <strong>RevealJS</strong></p>
-          <p class="email">Presenter: 23f1003053@ds.study.iitm.ac.in</p>
-          <p class="fragment">Built for stakeholders at a major financial institution</p>
-          <aside class="notes">
-            Welcome everyone. This deck showcases modern presentation features — live code, math, fragments, and markdown — while summarizing the quarter.
-          </aside>
-        </section>
+      <!-- TITLE -->
+      <section>
+        <h2>Quarterly Earnings Report</h2>
+        <p class="fragment">Modern, interactive stakeholder briefing</p>
+        <p class="title-email">Prepared by: 23f1003053@ds.study.iitm.ac.in</p>
+        <p><span class="badge">RevealJS</span> <span class="badge">Markdown</span> <span class="badge">Fragments</span> <span class="badge">Code</span> <span class="badge">Math</span> <span class="badge">Speaker Notes</span></p>
+        <aside class="notes">
+          Welcome! This deck demonstrates a modern, interactive format for quarterly reviews. Use → and ↓ to navigate. Hit <b>s</b> to open speaker notes.
+        </aside>
+      </section>
 
-        <!-- Markdown slide -->
-        <section data-markdown>
-          <textarea data-template>
-## Agenda (Markdown)
+      <!-- AGENDA with fragments (animated reveal) -->
+      <section>
+        <h3>Agenda</h3>
+        <ul>
+          <li class="fragment">Headline KPIs</li>
+          <li class="fragment">Revenue & Cost Drivers</li>
+          <li class="fragment">Cash Flow & Liquidity</li>
+          <li class="fragment">Tech Highlights (Code Demo)</li>
+          <li class="fragment">Outlook & Guidance</li>
+        </ul>
+        <aside class="notes">
+          Briefly preview the sections. Encourage questions to be parked for the end to keep flow.
+        </aside>
+      </section>
 
-- Results at a glance *(KPI overview)*
-- Revenue & margin trends
-- Guidance & risk factors
-- Q&A
+      <!-- MARKDOWN SLIDE -->
+      <section data-markdown>
+        <textarea data-template>
+### Headline KPIs (Markdown slide)
 
-> Pro tip: Press **S** for speaker notes, **O/ESC** for overview.
+- *Revenue:* $1.24B (▲ 7% YoY)
+- *Operating Margin:* *18.4%* (▲ 120 bps YoY)
+- *EPS (Diluted):* *$1.12* (▲ 9% YoY)
+- *Free Cash Flow:* *$226M* (▲ 5% YoY)
 
----
+> Takeaway: disciplined cost control + steady top-line growth.
 
-## KPI Snapshot
+Prepared by: 22f2001613@ds.study.iitm.ac.in
 
-- Revenue ↑ **12.4% YoY**
-- Operating Margin **18.2%**
-- EPS **₹ 12.10**
-          </textarea>
-          <aside class="notes">This slide proves we support Markdown authoring; handy for fast editing.</aside>
-        </section>
+Notes:
+- This slide uses RevealJS *Markdown* plugin.
+- Bullet items can be progressively revealed with *fragments* on other slides.
+        </textarea>
+      </section>
 
-        <!-- Animated fragments -->
-        <section>
-          <h2>Highlights (Fragments)</h2>
-          <ul>
-            <li class="fragment">Record transaction volumes</li>
-            <li class="fragment fade-up">Cost-to-income ratio improved 90 bps</li>
-            <li class="fragment fade-in-then-semi-out">NPA coverage at all‑time high</li>
-          </ul>
-          <aside class="notes">Advance one point at a time to let the narrative breathe.</aside>
-        </section>
-
-        <!-- KPIs with chart placeholder -->
-        <section>
-          <h2>KPIs</h2>
-          <div class="kpi">
-            <div class="fragment">
-              <h3>Revenue</h3>
-              <p class="r-fit-text">₹ 4,215 Cr</p>
-            </div>
-            <div class="fragment">
-              <h3>Operating Margin</h3>
-              <p class="r-fit-text">18.2%</p>
-            </div>
-            <div class="fragment">
-              <h3>EPS</h3>
-              <p class="r-fit-text">₹ 12.10</p>
-            </div>
+      <!-- KPI split + fragments -->
+      <section>
+        <h3>Revenue & Cost Drivers</h3>
+        <div class="grid-2">
+          <div>
+            <h4>Revenue Mix</h4>
+            <ul>
+              <li class="fragment">Institutional Banking – 46%</li>
+              <li class="fragment">Retail Banking – 34%</li>
+              <li class="fragment">Wealth & AM – 20%</li>
+            </ul>
           </div>
-          <div class="chart-placeholder fragment">
-            <em>Insert live chart (D3/Plotly) if desired</em>
+          <div>
+            <h4>Cost Focus</h4>
+            <ul>
+              <li class="fragment">Cloud migration savings realized</li>
+              <li class="fragment">Automation reduced ops tickets by ~22%</li>
+              <li class="fragment">Vendor consolidation on-track</li>
+            </ul>
           </div>
-          <aside class="notes">Numbers are placeholders — replace with actuals before publishing.</aside>
-        </section>
+        </div>
+        <aside class="notes">
+          Call out sustainability of mix. Emphasize recurring automation gains. Replace placeholder percentages with actuals before publishing.
+        </aside>
+      </section>
 
-        <!-- Code sample -->
-        <section>
-          <h2>Code Sample (Analytics Snippet)</h2>
-          <pre><code class="language-python" data-line-numbers="1-2|5-8|10-14">
-import pandas as pd
-from pathlib import Path
+      <!-- MATH / FINANCIAL FORMULAS -->
+      <section>
+        <h3>Financial Math</h3>
+        <p>Net Present Value (NPV):</p>
+        <p>\[ \mathrm{NPV} = \sum_{t=1}^{T} \frac{CF_t}{(1+r)^t} - C_0 \]</p>
+        <p class="caption">Where \(CF_t\) are cash flows, \(r\) is discount rate, and \(C_0\) is initial cost.</p>
+        <p>Cost of Equity (CAPM):</p>
+        <p>\[ k_e = r_f + \beta (r_m - r_f) \]</p>
+        <aside class="notes">
+          Mention sensitivity analysis on r and T. Show how guidance ranges shift NPV and k_e.
+        </aside>
+      </section>
 
-# Load redacted quarterly dataset
-path = Path('data/earnings.csv')
-df = pd.read_csv(path)
+      <!-- CODE SAMPLE with syntax highlighting -->
+      <section>
+        <h3>Tech Highlight: Programmatic KPI Check</h3>
+        <pre><code class="language-python">from dataclasses import dataclass
 
-# Simple growth calc
-q_rev = df.groupby('quarter')['revenue_cr'].sum()
-growth = q_rev.pct_change().round(3)
-print('QoQ growth:', growth.iloc[-1])
-          </code></pre>
-          <aside class="notes">We support syntax highlighting and step-by-step focus using line-number fragments.</aside>
-        </section>
+@dataclass
+class KPIs:
+    revenue: float  # in millions
+    op_margin: float  # 0..1
+    eps: float
 
-        <!-- Financial math -->
-        <section>
-          <h2>Financial Formulae (MathJax)</h2>
-          <p>Discounted Cash Flow (DCF):</p>
-          <p>\[ NPV = \sum_{t=1}^{T} \frac{FCF_t}{(1+r)^t} - \text{Initial Investment} \]</p>
-          <p>Weighted Average Cost of Capital (WACC):</p>
-          <p>\[ \mathrm{WACC} = \frac{E}{E+D} r_e + \frac{D}{E+D} r_d (1-\tau) \]</p>
-          <aside class="notes">Use these to justify discount rates behind the guidance.</aside>
-        </section>
+k = KPIs(revenue=1240.0, op_margin=0.184, eps=1.12)
 
-        <!-- Speaker notes demo -->
-        <section>
-          <h2>Guidance & Risks</h2>
-          <ul>
-            <li class="fragment">FY outlook reiterated</li>
-            <li class="fragment">Macro sensitivity: rates, FX</li>
-            <li class="fragment">Regulatory compliance investments</li>
-          </ul>
-          <aside class="notes">
-            Keep commentary concise; provide ranges, not point targets. Call out upside/downside cases.
-          </aside>
-        </section>
+def beats_consensus(actual, consensus):
+    return all(a >= c for a, c in zip(actual, consensus))
 
-        <!-- Closing -->
-        <section>
-          <h2>Publish to GitHub Pages</h2>
-          <ol>
-            <li>Create a public repo (e.g., <code>tds-ga-7</code>).</li>
-            <li>Add this <code>index.html</code> at the repository root (or folder if you prefer).</li>
-            <li>In <em>Settings → Pages</em>, set <strong>Branch: main</strong>, folder <strong>/root</strong> (or <strong>/docs</strong> if used).</li>
-            <li>Your deck will be available at: <code>https://namasteyji2003.github.io/tds-ga-7/</code></li>
-          </ol>
-          <aside class="notes">Pages may take ~1–2 minutes to go live after first publish.</aside>
-        </section>
+print(beats_consensus(
+    actual=(k.revenue, k.op_margin, k.eps),
+    consensus=(1215.0, 0.175, 1.08)
+))  # True
+</code></pre>
+        <aside class="notes">
+          Keep examples readable. This slide uses the *highlight.js* plugin via Reveal for syntax highlighting.
+        </aside>
+      </section>
 
-      </div>
+      <!-- INTERACTIVE Q&A with fragments -->
+      <section>
+        <h3>Outlook & Guidance</h3>
+        <ul>
+          <li class="fragment">FY topline growth: 6–8%</li>
+          <li class="fragment">OpEx: +3–4% (ex-LLPs)</li>
+          <li class="fragment">ROE target: &gt; 15%</li>
+          <li class="fragment">Capital return: progressive dividend policy</li>
+        </ul>
+        <aside class="notes">
+          Anchor expectations; stress macro assumptions and risk factors before Q&A.
+        </aside>
+      </section>
+
+      <!-- CONTACT / CLOSING -->
+      <section>
+        <h3>Thank You</h3>
+        <p>Questions? Reach me at <strong>23f1003053@ds.study.iitm.ac.in</strong></p>
+        <p class="caption">Press <kbd>?</kbd> during the talk for a quick keyboard help overlay.</p>
+        <aside class="notes">
+          Invite follow-ups and provide repository link after publishing on GitHub Pages.
+        </aside>
+      </section>
+
     </div>
+  </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+  <!-- Reveal.js core and plugins -->
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/math/math.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
 
-    <script>
-      Reveal.initialize({
-        width: 1280,
-        height: 720,
-        margin: 0.04,
-        controls: true,
-        progress: true,
-        history: true,
-        transition: 'slide',
-        plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealNotes ]
-      });
-    </script>
-  </body>
+  <script>
+    // Initialize Reveal
+    const deck = new Reveal({
+      hash: true,
+      transition: 'slide',
+      slideNumber: true,
+      plugins: [ RevealMarkdown, RevealHighlight, RevealMath.KaTeX, RevealNotes ],
+      // Optional: help auto-animate elements across slides if you add data-id's
+      autoAnimate: true
+    });
+    deck.initialize({
+      math: {
+        // KaTeX is loaded automatically by the plugin
+        // You can customize delivery via katex: { ... } if needed
+      }
+    });
+  </script>
+</body>
 </html>
-
-
